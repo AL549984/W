@@ -11,12 +11,12 @@ import {
   complianceRules,
   contestRules,
   cozeWorkflow,
-  currentTask,
   dailyPlan,
   doubaoWorkflow,
   faqItems,
   metrics,
   navSections,
+  progressGuidance,
   quickSteps,
   scoreRubric,
   submissionTemplate,
@@ -166,11 +166,11 @@ export default function Home() {
                   AI 降本增效实战手册
                 </h1>
                 <p className="mt-5 max-w-3xl text-lg leading-8 text-muted">
-                  用 7 天建立团队 AI 工具使用规范、飞书打卡机制与可复用提效资产。
+                  按个人起始时间完成 7 步训练，建立团队 AI 工具使用规范、飞书打卡机制与可复用提效资产。
                 </p>
                 <div className="mt-5 rounded-lg border border-blue-200 bg-blue-50 p-4">
-                  <p className="text-sm font-semibold text-blue-950">当前执行：{currentTask.day} · {currentTask.title}</p>
-                  <p className="mt-1 text-sm leading-6 text-blue-900">{currentTask.action}</p>
+                  <p className="text-sm font-semibold text-blue-950">个人进度制：从你的第一次打卡开始算 Day 1</p>
+                  <p className="mt-1 text-sm leading-6 text-blue-900">每个人按自己的开始时间推进，不需要追赶统一日程；管理侧按当前 Day 和最近打卡日期判断进度。</p>
                 </div>
                 <div className="mt-7 flex flex-wrap gap-3">
                   <a
@@ -221,10 +221,16 @@ export default function Home() {
 
           <section id="daily-plan" className="rounded-lg border border-line bg-white p-6 md:p-9">
             <SectionTitle
-              eyebrow="Daily Tasks"
-              title="7 天每日任务安排"
-              description="每天只推进一个明确目标，配套一个可提交成果。员工照着做，袁哥照着看进度。"
+              eyebrow="Personal Path"
+              title="个人 7 日训练路径"
+              description="从第一次打卡当天开始计算 Day 1。每个人按自己的节奏推进，完成一个 Day 就提交一次对应打卡。"
             />
+            <div className="mb-5 rounded-lg border border-line bg-surface p-5">
+              <h3 className="font-semibold text-ink">进度规则</h3>
+              <div className="mt-4">
+                <Checklist items={progressGuidance} />
+              </div>
+            </div>
             <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
               {dailyPlan.map((task, index) => (
                 <article key={task.day} className="rounded-lg border border-line bg-surface p-4">
@@ -250,8 +256,8 @@ export default function Home() {
           <section id="day-one" className="rounded-lg border border-line bg-white p-6 md:p-9">
             <SectionTitle
               eyebrow="Chapter 01"
-              title="快速入门：第二天上午前必须跑通"
-              description="这部分是防御工事的核心：所有人按统一路径自学、初始化工具、提交打卡，基础问题不进入一对一沟通。"
+              title="快速入门：个人 Day 1 必须跑通"
+              description="这部分是防御工事的核心：每个人从加入后的 Day 1 开始自学、初始化工具、提交打卡，基础问题不进入一对一沟通。"
             />
             <div className="grid gap-4 md:grid-cols-2">
               {quickSteps.map((step, index) => {
@@ -328,9 +334,10 @@ export default function Home() {
                 <h3 className="font-semibold text-ink">必填字段</h3>
                 <Checklist
                   items={[
+                    "训练进度：选择 Day 1 到 Day 7，按个人路径填写。",
                     "今日研学工具：Waytoagi、豆包、Coze、Gemini 或其他。",
                     "姓名：使用飞书人员字段，便于统计个人参与度。",
-                    "日期：每天只提交一次主记录，补充材料放在成果链接中。",
+                    "日期：每个训练日只提交一次主记录，补充材料放在成果链接中。",
                     "任务场景：说明对应真实工作任务，不接受泛泛而谈。",
                     "成果链接：文档、截图、Bot 链接或提示词模板。"
                   ]}
@@ -443,7 +450,7 @@ export default function Home() {
             <SectionTitle
               eyebrow="Competition"
               title="第一期 AI 办公生产力提效大赛"
-              description="以赛代练，把学习压力转化为可展示、可量化、可复用的成果，让管理层看到具体效率提升。"
+              description="以赛代练，把个人路径中的学习成果转化为可展示、可量化、可复用的作品。参赛按完成阶段触发，不按统一日期截止。"
             />
             <div className="grid gap-4">
               {contestRules.map((rule, index) => (

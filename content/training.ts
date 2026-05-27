@@ -26,7 +26,7 @@ export const navSections: NavSection[] = [
     title: "快速入门",
     items: [
       { href: "#overview", label: "训练目标" },
-      { href: "#daily-plan", label: "每日任务" },
+      { href: "#daily-plan", label: "7 日路径" },
       { href: "#day-one", label: "启动 SOP" },
       { href: "#waytoagi", label: "Waytoagi 指引" },
       { href: "#checkin", label: "飞书打卡规范" },
@@ -54,16 +54,17 @@ export const navSections: NavSection[] = [
 
 export const metrics = [
   { label: "基础问题拦截", value: "90%", icon: ShieldCheck },
-  { label: "首期训练周期", value: "7 天", icon: Gauge },
+  { label: "个人训练路径", value: "7 步", icon: Gauge },
   { label: "每日有效打卡", value: "1 次", icon: ClipboardCheck },
   { label: "核心交付物", value: "3 类", icon: Layers3 }
 ];
 
-export const currentTask = {
-  day: "Day 2",
-  title: "豆包文本提效",
-  action: "用豆包完成一次真实文本任务处理，并提交前后对比、提示词和节省时间估算。"
-};
+export const progressGuidance = [
+  "从第一次提交打卡当天开始计算个人 Day 1，不跟随全员统一日期。",
+  "每天完成一个训练任务并提交一次打卡；中断后从上一次未完成的 Day 继续。",
+  "连续 2 天未打卡时，下一次提交需补充未完成原因，方便管理侧判断是否需要介入。",
+  "管理看板重点看当前 Day、最近一次打卡日期、是否停滞、是否产出可复用资产。"
+];
 
 export const quickSteps = [
   {
@@ -83,7 +84,7 @@ export const quickSteps = [
   },
   {
     title: "每日表单打卡",
-    detail: "通过飞书多维表格【AI 学习与实战每日打卡】提交工具、姓名、日期和成果链接。",
+    detail: "通过飞书多维表格【AI 学习与实战每日打卡】提交训练进度、工具、姓名、日期和成果链接。",
     icon: ClipboardCheck
   },
   {
@@ -192,7 +193,7 @@ export const contestRules = [
   },
   {
     title: "管理节奏",
-    detail: "第 1 天发布赛题，第 3 天中期榜单，第 6 天截止提交，第 7 天线上评审与公布优秀案例。"
+    detail: "完成 Day 1-Day 5 后可提交参赛初稿；完成 Day 6 后提交最终作品；完成 Day 7 后进入优秀案例沉淀。"
   }
 ];
 
