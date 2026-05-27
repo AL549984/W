@@ -91,7 +91,7 @@ export default function Home() {
               <Rocket className="h-5 w-5" aria-hidden="true" />
             </div>
             <div>
-              <p className="text-sm font-semibold text-ink">AI 降本增效实战手册</p>
+              <p className="text-sm font-semibold text-ink">AI 办公提效实战手册</p>
               <p className="text-xs text-muted">团队标准化训练体系</p>
             </div>
           </a>
@@ -167,7 +167,7 @@ export default function Home() {
               <div>
                 <p className="text-sm font-semibold text-brand">Training System / QMT AI Enablement</p>
                 <h1 className="mt-4 max-w-4xl break-words text-2xl font-semibold leading-tight tracking-normal text-ink sm:text-4xl md:text-5xl">
-                  AI 降本增效实战手册
+                  AI 办公提效实战手册
                 </h1>
                 <p className="mt-5 max-w-3xl text-lg leading-8 text-muted">
                   按个人起始时间完成 7 步训练，建立团队 AI 工具使用规范、飞书打卡机制与可复用提效资产。

@@ -1,6 +1,6 @@
-# AI 降本增效实战手册
+# AI 办公提效实战手册
 
-面向团队的 AI 降本增效教程站，采用 Next.js + Tailwind CSS 构建，内容覆盖：
+面向团队的 AI 办公提效教程站，采用 Next.js + Tailwind CSS 构建，内容覆盖：
 
 - 快速入门：Waytoagi 认知指引、飞书表单打卡规范
 - 国产 AI 工具提效：豆包洗稿流程、Coze 业务 Bot 搭建 SOP
