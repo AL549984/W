@@ -14,6 +14,9 @@ import {
   contestRules,
   cozeWorkflow,
   dailyPlan,
+  dashboardFields,
+  dashboardMetrics,
+  dashboardViews,
   doubaoWorkflow,
   faqItems,
   metrics,
@@ -28,6 +31,7 @@ import {
 } from "@/content/training";
 
 const feishuCheckinUrl = "https://ycn3zdw6f1p7.feishu.cn/share/base/form/shrcnBc0xJ7ph6KBDSpkdmwizie";
+const feishuBaseUrl = "https://ycn3zdw6f1p7.feishu.cn/base/J2nwbUjY0avR67sH6Pmc1PC4n0c?from=from_copylink";
 const mobileNavItems = navSections.flatMap((section) => section.items);
 
 function SectionTitle({
@@ -368,6 +372,47 @@ export default function Home() {
             <CompactDetails title="低质量打卡退回规则" defaultOpen>
               <Checklist items={validCheckinRules} />
             </CompactDetails>
+          </section>
+
+          <section id="dashboard" className="rounded-lg border border-line bg-white p-6 md:p-9">
+            <SectionTitle
+              eyebrow="Feishu Dashboard"
+              title="飞书可视化看板"
+              description="管理人员直接在飞书多维表格里看每个人进度、最近打卡和暂停天数，网站只负责说明口径和入口。"
+            />
+            <div className="mb-5 rounded-lg border border-blue-200 bg-blue-50 p-4">
+              <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                <div>
+                  <p className="font-semibold text-blue-950">管理看板入口</p>
+                  <p className="mt-1 text-sm leading-6 text-blue-900">进入飞书多维表格后，建议配置个人进度总览、暂停提醒、Day 分布和资产沉淀视图。</p>
+                </div>
+                <a
+                  href={feishuBaseUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex h-10 shrink-0 items-center justify-center gap-2 rounded-lg bg-brand px-4 text-sm font-semibold text-white transition hover:bg-blue-700"
+                >
+                  打开飞书看板
+                  <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                </a>
+              </div>
+            </div>
+            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+              {dashboardMetrics.map((item) => (
+                <article key={item.title} className="rounded-lg border border-line bg-surface p-4">
+                  <h3 className="font-semibold text-ink">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-muted">{item.detail}</p>
+                </article>
+              ))}
+            </div>
+            <div className="mt-4 grid gap-4 lg:grid-cols-2">
+              <CompactDetails title="建议字段" defaultOpen>
+                <Checklist items={dashboardFields} />
+              </CompactDetails>
+              <CompactDetails title="建议视图" defaultOpen>
+                <Checklist items={dashboardViews} />
+              </CompactDetails>
+            </div>
           </section>
 
           <section id="compliance" className="rounded-lg border border-line bg-white p-6 md:p-9">
