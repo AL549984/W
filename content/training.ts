@@ -31,7 +31,6 @@ export const navSections: NavSection[] = [
       { href: "#waytoagi", label: "Waytoagi 指引" },
       { href: "#checkin", label: "飞书打卡规范" },
       { href: "#valid-checkin", label: "有效打卡" },
-      { href: "#dashboard", label: "飞书看板" },
       { href: "#compliance", label: "合规红线" }
     ]
   },
@@ -112,41 +111,6 @@ export const validCheckinRules = [
   "必须提供成果链接或截图；没有可检查成果的记录默认退回。",
   "节省时间估算必须填写数字或百分比，不接受“感觉更快”。",
   "涉及敏感信息、未脱敏材料或无法复核的结论，直接退回重提。"
-];
-
-export const dashboardMetrics = [
-  {
-    title: "当前进度",
-    detail: "每个人当前处于 Day 1-Day 7 的哪一步，便于判断整体推进分布。"
-  },
-  {
-    title: "最近打卡",
-    detail: "展示最近一次有效打卡日期，避免只看累计次数导致误判。"
-  },
-  {
-    title: "暂停天数",
-    detail: "用公式字段计算今天距离最近打卡日期间隔几天，超过阈值自动进入提醒视图。"
-  },
-  {
-    title: "资产产出",
-    detail: "标记是否产出提示词、模板、Bot 或工作流，避免只完成打卡但没有沉淀。"
-  }
-];
-
-export const dashboardFields = [
-  "人员：使用飞书人员字段或姓名字段，保证每条记录能归属到个人。",
-  "训练进度：单选字段 Day 1-Day 7，按个人路径填写。",
-  "最近打卡日期：日期字段，用于判断是否停滞。",
-  "暂停天数：公式字段，计算今天与最近打卡日期的间隔天数。",
-  "状态：单选字段，建议包含正常、需提醒、暂停、已完成。",
-  "可复用资产：记录提示词、模板、Bot、工作流链接或数量。"
-];
-
-export const dashboardViews = [
-  "个人进度总览：按人员展示当前 Day、最近打卡日期、暂停天数、状态。",
-  "暂停提醒视图：筛选暂停天数大于等于 2，或状态为需提醒/暂停。",
-  "Day 分布视图：按训练进度分组，查看成员集中在哪些阶段。",
-  "资产沉淀视图：筛选可复用资产不为空，沉淀优秀提示词、模板和 Bot。"
 ];
 
 export const acceptanceCriteria = [
