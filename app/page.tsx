@@ -8,19 +8,24 @@ import {
 import { Alert } from "@/components/Alert";
 import { StepCard } from "@/components/StepCard";
 import {
+  acceptanceCriteria,
+  assetExitRules,
   complianceRules,
   contestRules,
   cozeWorkflow,
   dailyPlan,
   doubaoWorkflow,
   faqItems,
+  managerMetrics,
   metrics,
   navSections,
+  operationRules,
   progressGuidance,
   quickSteps,
   scoreRubric,
   submissionTemplate,
-  toolCards
+  toolCards,
+  validCheckinRules
 } from "@/content/training";
 
 const feishuCheckinUrl = "https://ycn3zdw6f1p7.feishu.cn/share/base/form/shrcnBc0xJ7ph6KBDSpkdmwizie";
@@ -355,6 +360,17 @@ export default function Home() {
             </div>
           </section>
 
+          <section id="valid-checkin" className="rounded-lg border border-line bg-white p-6 md:p-9">
+            <SectionTitle
+              eyebrow="Quality Gate"
+              title="有效打卡标准"
+              description="打卡必须能被检查、能被统计、能沉淀资产。低质量记录不进入有效统计。"
+            />
+            <CompactDetails title="低质量打卡退回规则" defaultOpen>
+              <Checklist items={validCheckinRules} />
+            </CompactDetails>
+          </section>
+
           <section id="compliance" className="rounded-lg border border-line bg-white p-6 md:p-9">
             <SectionTitle
               eyebrow="Compliance"
@@ -494,6 +510,38 @@ export default function Home() {
                   </div>
                 ))}
               </div>
+              </CompactDetails>
+            </div>
+          </section>
+
+          <section id="acceptance" className="rounded-lg border border-line bg-white p-6 md:p-9">
+            <SectionTitle
+              eyebrow="Acceptance"
+              title="作品验收标准"
+              description="完成路径不等于交付合格。最终作品必须能证明真实提效，并留下可复用资产。"
+            />
+            <div className="grid gap-4 lg:grid-cols-2">
+              <CompactDetails title="合格作品必须满足" defaultOpen>
+                <Checklist items={acceptanceCriteria} />
+              </CompactDetails>
+              <CompactDetails title="Day 7 后资产沉淀出口" defaultOpen>
+                <Checklist items={assetExitRules} />
+              </CompactDetails>
+            </div>
+          </section>
+
+          <section id="management" className="rounded-lg border border-line bg-white p-6 md:p-9">
+            <SectionTitle
+              eyebrow="Management"
+              title="管理者看板口径"
+              description="管理侧只看能推动行动的指标，不逐条陪跑，不把培训变成保姆式答疑。"
+            />
+            <div className="grid gap-4 lg:grid-cols-2">
+              <CompactDetails title="每周只看 5 个指标" defaultOpen>
+                <Checklist items={managerMetrics} />
+              </CompactDetails>
+              <CompactDetails title="第一期试运行规则">
+                <Checklist items={operationRules} />
               </CompactDetails>
             </div>
           </section>

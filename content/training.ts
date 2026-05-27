@@ -30,6 +30,7 @@ export const navSections: NavSection[] = [
       { href: "#day-one", label: "启动 SOP" },
       { href: "#waytoagi", label: "Waytoagi 指引" },
       { href: "#checkin", label: "飞书打卡规范" },
+      { href: "#valid-checkin", label: "有效打卡" },
       { href: "#compliance", label: "合规红线" }
     ]
   },
@@ -47,6 +48,8 @@ export const navSections: NavSection[] = [
       { href: "#gemini", label: "Gemini 配置" },
       { href: "#contest", label: "提效大赛" },
       { href: "#templates", label: "提交模板" },
+      { href: "#acceptance", label: "验收标准" },
+      { href: "#management", label: "管理口径" },
       { href: "#faq", label: "FAQ" }
     ]
   }
@@ -100,6 +103,43 @@ export const complianceRules = [
   "合同原文、报价文件、未公开经营数据、内部会议原文不得上传。",
   "未公开策略、交易细节、持仓数据、QMT 相关核心参数不得上传。",
   "对外发送前必须人工复核事实、数字、结论倾向和措辞边界。"
+];
+
+export const validCheckinRules = [
+  "必须选择训练进度 Day 1-Day 7，不能只写日期或自由文本。",
+  "必须填写真实任务场景，只有“学习了 AI”“看了教程”不算有效打卡。",
+  "必须提供成果链接或截图；没有可检查成果的记录默认退回。",
+  "节省时间估算必须填写数字或百分比，不接受“感觉更快”。",
+  "涉及敏感信息、未脱敏材料或无法复核的结论，直接退回重提。"
+];
+
+export const acceptanceCriteria = [
+  "有真实业务场景：说明原始任务、输入材料和原本人工处理方式。",
+  "有处理前后对比：能看出结构、质量或时间上的变化。",
+  "有可复用资产：提示词、模板、Bot 或工作流至少沉淀一种。",
+  "有节省时间估算：用分钟或百分比表达，并说明估算依据。",
+  "有人工核验说明：标注事实、数字、结论和对外表达的复核动作。"
+];
+
+export const managerMetrics = [
+  "当前 Day 分布：看团队整体推进到哪一步。",
+  "停滞名单：看最近 2 天未打卡或长期停在同一 Day 的人员。",
+  "有效打卡率：剔除无成果链接、无任务场景、无节省估算的记录。",
+  "可复用资产数：统计提示词、模板、Bot、工作流的沉淀数量。",
+  "优秀案例数：筛选可进入团队 SOP 或后续复训材料的作品。"
+];
+
+export const assetExitRules = [
+  "完成 Day 7 后，优秀提示词进入团队提示词库候选。",
+  "可稳定复用的 Coze Bot 进入团队 Bot 清单候选。",
+  "能重复跑通的流程进入团队 SOP 或工作流候选。",
+  "未达到验收标准的作品不进入资产库，只作为个人学习记录保留。"
+];
+
+export const operationRules = [
+  "第一期为试运行，规则会根据打卡质量和作品产出调整。",
+  "未按格式提问、FAQ 已覆盖、未提供截图或链接的问题，默认不处理。",
+  "管理侧每周只看进度、停滞、有效打卡、资产产出和优秀案例，不做逐条保姆式辅导。"
 ];
 
 export const dailyPlan = [
