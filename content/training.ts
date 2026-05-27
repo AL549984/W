@@ -29,7 +29,8 @@ export const navSections: NavSection[] = [
       { href: "#daily-plan", label: "每日任务" },
       { href: "#day-one", label: "启动 SOP" },
       { href: "#waytoagi", label: "Waytoagi 指引" },
-      { href: "#checkin", label: "飞书打卡规范" }
+      { href: "#checkin", label: "飞书打卡规范" },
+      { href: "#compliance", label: "合规红线" }
     ]
   },
   {
@@ -58,6 +59,12 @@ export const metrics = [
   { label: "核心交付物", value: "3 类", icon: Layers3 }
 ];
 
+export const currentTask = {
+  day: "Day 2",
+  title: "豆包文本提效",
+  action: "用豆包完成一次真实文本任务处理，并提交前后对比、提示词和节省时间估算。"
+};
+
 export const quickSteps = [
   {
     title: "进入飞书主场",
@@ -84,6 +91,14 @@ export const quickSteps = [
     detail: "基础问题先查教程和 FAQ，仍无法解决时按固定格式在群内提问，避免一对一消耗。",
     icon: BrainCircuit
   }
+];
+
+export const complianceRules = [
+  "客户姓名、联系方式、账户信息、身份证件等个人或客户敏感信息不得上传。",
+  "账号密码、验证码、密钥、付款信息和内部系统入口不得上传。",
+  "合同原文、报价文件、未公开经营数据、内部会议原文不得上传。",
+  "未公开策略、交易细节、持仓数据、QMT 相关核心参数不得上传。",
+  "对外发送前必须人工复核事实、数字、结论倾向和措辞边界。"
 ];
 
 export const dailyPlan = [

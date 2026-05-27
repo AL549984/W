@@ -2,13 +2,16 @@ import {
   ArrowUpRight,
   Check,
   ChevronRight,
+  ShieldAlert,
   Rocket
 } from "lucide-react";
 import { Alert } from "@/components/Alert";
 import { StepCard } from "@/components/StepCard";
 import {
+  complianceRules,
   contestRules,
   cozeWorkflow,
+  currentTask,
   dailyPlan,
   doubaoWorkflow,
   faqItems,
@@ -64,8 +67,8 @@ export default function Home() {
               <Rocket className="h-5 w-5" aria-hidden="true" />
             </div>
             <div>
-              <p className="text-sm font-semibold text-ink">AI 提效训练营</p>
-              <p className="text-xs text-muted">团队标准化教程</p>
+              <p className="text-sm font-semibold text-ink">AI 降本增效实战手册</p>
+              <p className="text-xs text-muted">团队标准化训练体系</p>
             </div>
           </a>
           <nav className="hidden items-center gap-7 text-sm font-medium text-muted md:flex" aria-label="顶部导航">
@@ -86,8 +89,8 @@ export default function Home() {
               rel="noreferrer"
               className="inline-flex h-10 items-center gap-2 rounded-lg bg-brand px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700"
             >
-              <span className="sm:hidden">打卡</span>
-              <span className="hidden sm:inline">前往飞书打卡</span>
+              <span className="sm:hidden">提交</span>
+              <span className="hidden sm:inline">提交今日打卡</span>
               <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
             </a>
           </div>
@@ -107,7 +110,7 @@ export default function Home() {
         </nav>
       </header>
 
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 py-6 sm:px-6 md:py-10 lg:grid-cols-[260px_minmax(0,1fr)] lg:gap-10 lg:px-8">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 pb-24 pt-6 sm:px-6 md:py-10 lg:grid-cols-[260px_minmax(0,1fr)] lg:gap-10 lg:px-8">
         <aside className="hidden lg:block">
           <div className="sticky top-24 rounded-lg border border-line bg-white p-5 shadow-sm">
             <p className="text-xs font-semibold uppercase text-gray-400">目录</p>
@@ -140,11 +143,15 @@ export default function Home() {
               <div>
                 <p className="text-sm font-semibold text-brand">Training System / QMT AI Enablement</p>
                 <h1 className="mt-4 max-w-4xl break-words text-2xl font-semibold leading-tight tracking-normal text-ink sm:text-4xl md:text-5xl">
-                  AI 降本增效训练体系
+                  AI 降本增效实战手册
                 </h1>
                 <p className="mt-5 max-w-3xl text-lg leading-8 text-muted">
-                  以标准化文档、飞书看板和轻量竞赛替代手把手教学，把基础问题挡在教程内，把真正值得讨论的问题沉淀成可复用资产。
+                  用 7 天建立团队 AI 工具使用规范、飞书打卡机制与可复用提效资产。
                 </p>
+                <div className="mt-5 rounded-lg border border-blue-200 bg-blue-50 p-4">
+                  <p className="text-sm font-semibold text-blue-950">当前执行：{currentTask.day} · {currentTask.title}</p>
+                  <p className="mt-1 text-sm leading-6 text-blue-900">{currentTask.action}</p>
+                </div>
                 <div className="mt-7 flex flex-wrap gap-3">
                   <a
                     href="#day-one"
@@ -159,7 +166,7 @@ export default function Home() {
                     rel="noreferrer"
                     className="inline-flex h-11 items-center gap-2 rounded-lg border border-line bg-white px-5 text-sm font-semibold text-ink transition hover:bg-surface"
                   >
-                    打开打卡表单
+                    提交今日打卡
                     <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                   </a>
                 </div>
@@ -323,6 +330,25 @@ export default function Home() {
             </div>
           </section>
 
+          <section id="compliance" className="rounded-lg border border-line bg-white p-6 md:p-9">
+            <SectionTitle
+              eyebrow="Compliance"
+              title="合规红线"
+              description="AI 工具只能处理已脱敏、可外部化的材料。任何涉及客户、策略、交易和内部经营的内容，必须先判断边界。"
+            />
+            <div className="rounded-lg border border-amber-200 bg-amber-50 p-5">
+              <div className="flex gap-3">
+                <ShieldAlert className="mt-1 h-5 w-5 shrink-0 text-amber" aria-hidden="true" />
+                <div>
+                  <p className="font-semibold text-amber-950">提交、提问、参赛前先做脱敏检查</p>
+                  <div className="mt-4">
+                    <Checklist items={complianceRules} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
           <section id="doubao" className="rounded-lg border border-line bg-white p-6 md:p-9">
             <SectionTitle
               eyebrow="Chapter 02"
@@ -356,6 +382,9 @@ export default function Home() {
               title="异步答疑机制"
               description="群里只处理共性问题和高价值案例，重复问题统一回到教程链接，避免教学资源被低水平问题消耗。"
             />
+            <Alert title="提问前置规则" tone="warning">
+              提问前必须先查 FAQ；FAQ 已覆盖的重复问题不单独回复，统一回到对应章节自助排查。
+            </Alert>
             <div className="grid gap-4 md:grid-cols-3">
               {["教程优先", "群内集中", "案例沉淀"].map((title, index) => (
                 <div key={title} className="rounded-lg border border-line bg-surface p-5">
@@ -460,6 +489,17 @@ export default function Home() {
           </section>
 
         </div>
+      </div>
+      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-line bg-white/95 p-3 shadow-soft backdrop-blur lg:hidden">
+        <a
+          href={feishuCheckinUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="mx-auto flex h-11 max-w-md items-center justify-center gap-2 rounded-lg bg-brand px-4 text-sm font-semibold text-white"
+        >
+          提交今日打卡
+          <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+        </a>
       </div>
     </main>
   );
