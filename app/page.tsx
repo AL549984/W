@@ -16,7 +16,6 @@ import {
   dailyPlan,
   doubaoWorkflow,
   faqItems,
-  managerMetrics,
   metrics,
   navSections,
   operationRules,
@@ -530,20 +529,15 @@ export default function Home() {
             </div>
           </section>
 
-          <section id="management" className="rounded-lg border border-line bg-white p-6 md:p-9">
+          <section id="operations" className="rounded-lg border border-line bg-white p-6 md:p-9">
             <SectionTitle
-              eyebrow="Management"
-              title="管理者看板口径"
-              description="管理侧只看能推动行动的指标，不逐条陪跑，不把培训变成保姆式答疑。"
+              eyebrow="Operations"
+              title="第一期试运行规则"
+              description="规则保持轻量，优先保证有效打卡、作品验收和资产沉淀，不做逐条保姆式答疑。"
             />
-            <div className="grid gap-4 lg:grid-cols-2">
-              <CompactDetails title="每周只看 5 个指标" defaultOpen>
-                <Checklist items={managerMetrics} />
-              </CompactDetails>
-              <CompactDetails title="第一期试运行规则">
-                <Checklist items={operationRules} />
-              </CompactDetails>
-            </div>
+            <CompactDetails title="试运行口径" defaultOpen>
+              <Checklist items={operationRules} />
+            </CompactDetails>
           </section>
 
           <section id="faq" className="rounded-lg border border-line bg-white p-6 md:p-9">

@@ -49,7 +49,7 @@ export const navSections: NavSection[] = [
       { href: "#contest", label: "提效大赛" },
       { href: "#templates", label: "提交模板" },
       { href: "#acceptance", label: "验收标准" },
-      { href: "#management", label: "管理口径" },
+      { href: "#operations", label: "试运行规则" },
       { href: "#faq", label: "FAQ" }
     ]
   }
@@ -66,7 +66,7 @@ export const progressGuidance = [
   "从第一次提交打卡当天开始计算个人 Day 1，不跟随全员统一日期。",
   "每天完成一个训练任务并提交一次打卡；中断后从上一次未完成的 Day 继续。",
   "连续 2 天未打卡时，下一次提交需补充未完成原因，方便管理侧判断是否需要介入。",
-  "管理看板重点看当前 Day、最近一次打卡日期、是否停滞、是否产出可复用资产。"
+  "每次打卡都要留下可检查成果，最终以可复用资产和作品质量作为验收依据。"
 ];
 
 export const quickSteps = [
@@ -121,14 +121,6 @@ export const acceptanceCriteria = [
   "有人工核验说明：标注事实、数字、结论和对外表达的复核动作。"
 ];
 
-export const managerMetrics = [
-  "当前 Day 分布：看团队整体推进到哪一步。",
-  "停滞名单：看最近 2 天未打卡或长期停在同一 Day 的人员。",
-  "有效打卡率：剔除无成果链接、无任务场景、无节省估算的记录。",
-  "可复用资产数：统计提示词、模板、Bot、工作流的沉淀数量。",
-  "优秀案例数：筛选可进入团队 SOP 或后续复训材料的作品。"
-];
-
 export const assetExitRules = [
   "完成 Day 7 后，优秀提示词进入团队提示词库候选。",
   "可稳定复用的 Coze Bot 进入团队 Bot 清单候选。",
@@ -139,7 +131,7 @@ export const assetExitRules = [
 export const operationRules = [
   "第一期为试运行，规则会根据打卡质量和作品产出调整。",
   "未按格式提问、FAQ 已覆盖、未提供截图或链接的问题，默认不处理。",
-  "管理侧每周只看进度、停滞、有效打卡、资产产出和优秀案例，不做逐条保姆式辅导。"
+  "辅导资源优先处理共性问题和高价值案例，不做逐条保姆式答疑。"
 ];
 
 export const dailyPlan = [
