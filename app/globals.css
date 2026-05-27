@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  background: #f7f9fc;
+  color: #111827;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    linear-gradient(180deg, rgba(37, 99, 235, 0.06) 0%, rgba(247, 249, 252, 0) 320px),
+    #f7f9fc;
+  font-size: 17px;
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+::selection {
+  background: rgba(37, 99, 235, 0.16);
+}
+
+.text-xs {
+  font-size: 0.8rem;
+}
+
+.text-sm {
+  font-size: 0.95rem;
+}
+
+.text-base {
+  font-size: 1.05rem;
+}
+
+.prose-doc p {
+  color: #374151;
+  line-height: 1.82;
+}
+
+.prose-doc strong {
+  color: #111827;
+}
