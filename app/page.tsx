@@ -57,6 +57,26 @@ function Checklist({ items }: { items: string[] }) {
   );
 }
 
+function CompactDetails({
+  title,
+  children,
+  defaultOpen = false
+}: {
+  title: string;
+  children: React.ReactNode;
+  defaultOpen?: boolean;
+}) {
+  return (
+    <details className="group rounded-lg border border-line bg-surface p-5" open={defaultOpen}>
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-ink">
+        <span>{title}</span>
+        <ChevronRight className="h-4 w-4 shrink-0 text-muted transition group-open:rotate-90" aria-hidden="true" />
+      </summary>
+      <div className="mt-4 border-t border-line pt-4">{children}</div>
+    </details>
+  );
+}
+
 export default function Home() {
   return (
     <main className="min-h-screen overflow-x-hidden">
@@ -137,7 +157,7 @@ export default function Home() {
           </div>
         </aside>
 
-        <div className="space-y-12">
+        <div className="space-y-8">
           <section id="overview" className="rounded-lg border border-line bg-white p-6 shadow-soft md:p-9">
             <div className="grid gap-8 lg:grid-cols-[1fr_320px] lg:items-center">
               <div>
@@ -205,23 +225,21 @@ export default function Home() {
               title="7 天每日任务安排"
               description="每天只推进一个明确目标，配套一个可提交成果。员工照着做，袁哥照着看进度。"
             />
-            <div className="grid gap-4">
+            <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
               {dailyPlan.map((task, index) => (
-                <article key={task.day} className="rounded-lg border border-line bg-surface p-5">
-                  <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-                    <div className="flex gap-4">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-ink text-sm font-semibold text-white">
-                        {index + 1}
-                      </div>
-                      <div>
-                        <p className="text-sm font-semibold text-brand">{task.day}</p>
-                        <h3 className="mt-1 text-lg font-semibold text-ink">{task.title}</h3>
-                        <p className="mt-2 text-sm leading-6 text-muted">{task.focus}</p>
-                      </div>
+                <article key={task.day} className="rounded-lg border border-line bg-surface p-4">
+                  <div className="flex items-start gap-3">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-ink text-sm font-semibold text-white">
+                      {index + 1}
                     </div>
-                    <div className="rounded-lg border border-line bg-white p-4 text-sm leading-6 text-gray-700 md:w-80">
-                      <span className="font-semibold text-ink">当日交付：</span>
-                      {task.output}
+                    <div>
+                      <p className="text-sm font-semibold text-brand">{task.day}</p>
+                      <h3 className="mt-1 font-semibold text-ink">{task.title}</h3>
+                      <p className="mt-2 text-sm leading-6 text-muted">{task.focus}</p>
+                      <p className="mt-3 text-sm leading-6 text-gray-700">
+                        <span className="font-semibold text-ink">交付：</span>
+                        {task.output}
+                      </p>
                     </div>
                   </div>
                 </article>
@@ -235,7 +253,7 @@ export default function Home() {
               title="快速入门：第二天上午前必须跑通"
               description="这部分是防御工事的核心：所有人按统一路径自学、初始化工具、提交打卡，基础问题不进入一对一沟通。"
             />
-            <div className="grid gap-4">
+            <div className="grid gap-4 md:grid-cols-2">
               {quickSteps.map((step, index) => {
                 const Icon = step.icon;
                 return (
@@ -442,14 +460,14 @@ export default function Home() {
               title="参赛提交模板与评分表"
               description="把交付格式提前固定下来，员工按模板提交，管理层按同一把尺子评审。"
             />
-            <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
-              <div className="rounded-lg border border-line bg-surface p-5">
-                <h3 className="font-semibold text-ink">提交模板</h3>
-                <div className="mt-4">
+            <div className="grid gap-4">
+              <CompactDetails title="提交模板" defaultOpen>
+                <div>
                   <Checklist items={submissionTemplate} />
                 </div>
-              </div>
-              <div className="overflow-hidden rounded-lg border border-line bg-white">
+              </CompactDetails>
+              <CompactDetails title="评分表">
+                <div className="overflow-hidden rounded-lg border border-line bg-white">
                 <div className="grid grid-cols-[88px_1fr] border-b border-line bg-surface px-4 py-3 text-sm font-semibold text-ink md:grid-cols-[96px_92px_1fr]">
                   <span>维度</span>
                   <span className="hidden md:block">权重</span>
@@ -469,6 +487,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
+              </CompactDetails>
             </div>
           </section>
 
@@ -478,12 +497,15 @@ export default function Home() {
               title="基础问题自助排查"
               description="先看 FAQ，再按格式提问。重复问题统一回到这里，减少群内刷屏和一对一消耗。"
             />
-            <div className="grid gap-4">
+            <div className="grid gap-3">
               {faqItems.map((item) => (
-                <article key={item.question} className="rounded-lg border border-line bg-surface p-5">
-                  <h3 className="font-semibold text-ink">{item.question}</h3>
+                <details key={item.question} className="group rounded-lg border border-line bg-surface p-5">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-ink">
+                    <span>{item.question}</span>
+                    <ChevronRight className="h-4 w-4 shrink-0 text-muted transition group-open:rotate-90" aria-hidden="true" />
+                  </summary>
                   <p className="mt-2 text-sm leading-6 text-muted">{item.answer}</p>
-                </article>
+                </details>
               ))}
             </div>
           </section>
