@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "吴总团队 AI 提效训练营",
+  title: "AI 提效训练营",
   description: "面向量化研究与办公生产力场景的 AI 降本增效培训体系"
 };
 

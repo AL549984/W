@@ -59,13 +59,13 @@ export default function Home() {
     <main className="min-h-screen overflow-x-hidden">
       <header className="sticky top-0 z-40 border-b border-line bg-white/88 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-          <a href="#overview" className="flex items-center gap-3" aria-label="吴总团队 AI 提效训练营首页">
+          <a href="#overview" className="flex items-center gap-3" aria-label="AI 提效训练营首页">
             <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-ink text-white">
               <Rocket className="h-5 w-5" aria-hidden="true" />
             </div>
             <div>
               <p className="text-sm font-semibold text-ink">AI 提效训练营</p>
-              <p className="text-xs text-muted">吴总团队标准化教程</p>
+              <p className="text-xs text-muted">团队标准化教程</p>
             </div>
           </a>
           <nav className="hidden items-center gap-7 text-sm font-medium text-muted md:flex" aria-label="顶部导航">
@@ -140,7 +140,7 @@ export default function Home() {
               <div>
                 <p className="text-sm font-semibold text-brand">Training System / QMT AI Enablement</p>
                 <h1 className="mt-4 max-w-4xl break-words text-2xl font-semibold leading-tight tracking-normal text-ink sm:text-4xl md:text-5xl">
-                  吴总团队 AI 降本增效训练体系
+                  AI 降本增效训练体系
                 </h1>
                 <p className="mt-5 max-w-3xl text-lg leading-8 text-muted">
                   以标准化文档、飞书看板和轻量竞赛替代手把手教学，把基础问题挡在教程内，把真正值得讨论的问题沉淀成可复用资产。

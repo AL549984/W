@@ -61,7 +61,7 @@ export const metrics = [
 export const quickSteps = [
   {
     title: "进入飞书主场",
-    detail: "加入【吴总团队 AI 学习交流群】，所有通知、答疑、打卡链接都以群内置顶消息为准。",
+    detail: "加入【AI 学习交流群】，所有通知、答疑、打卡链接都以群内置顶消息为准。",
     icon: Flag
   },
   {
@@ -161,7 +161,7 @@ export const cozeWorkflow = [
 export const contestRules = [
   {
     title: "参赛对象",
-    detail: "吴总团队全员参与，允许 1 人单独提交，也允许 2-3 人组队提交。"
+    detail: "团队全员参与，允许 1 人单独提交，也允许 2-3 人组队提交。"
   },
   {
     title: "赛题方向",
